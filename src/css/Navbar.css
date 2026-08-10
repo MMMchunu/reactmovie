@@ -14,24 +14,38 @@
 
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
- .nav-links.active {
-    color: #e50914;
-    border-bottom: 2px solid #e50914;
-}
-
-
-.nav-link {
+.nav-links {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.2s;
 }
 
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.nav-links.active {
+  
+  background-color: #646cff;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+}
+
+.nav-links.active:hover {
+  
+  background-color: rgba(100, 108, 255, 1);
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+}
+
+.nav-links:hover {
+  /*background-color: rgba(255, 255, 255, 0.1);*/
+  color: rgba(169, 171, 217, 0.8);
+  background-color: rgba(83, 91, 242, 0.2);
 }
 
 @media (max-width: 768px) {
