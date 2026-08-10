@@ -9,19 +9,22 @@ import {Routes, Route} from 'react-router-dom'
 import {MovieProvider} from './contexts/MovieContext'
 import Favourite from './pages/Favourite'
 import NavBar from './components/NavBar'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 function App() {
   
   return (
-    <MovieProvider>
-      <NavBar />
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/favourite" element={<Favourite />}/>
-        </Routes>
-      </main>
-    </MovieProvider> 
+    <ThemeProvider>
+      <MovieProvider>
+        <NavBar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/favourite" element={<Favourite />}/>
+          </Routes>
+        </main>
+      </MovieProvider> 
+    </ThemeProvider>
   );
 }
 

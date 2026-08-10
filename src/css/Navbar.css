@@ -1,10 +1,12 @@
 .navbar {
-  background-color: #000000;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -17,35 +19,92 @@
   gap: 1rem;
 }
 
+.navbar-brand a {
+  color: var(--nav-text);   /* was inheriting the <a> purple */
+}
+
 .nav-links {
+  color: var(--nav-text);
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.nav-links.active {
-  
-  background-color: #646cff;
-  color: white;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-
-}
-
-.nav-links.active:hover {
-  
-  background-color: rgba(100, 108, 255, 1);
-  color: white;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-links:hover {
-  /*background-color: rgba(255, 255, 255, 0.1);*/
-  color: rgba(169, 171, 217, 0.8);
-  background-color: rgba(83, 91, 242, 0.2);
+  color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.nav-links.active,
+.nav-links.active:hover {
+  background-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.theme-option {
+  cursor: pointer;
+}
+
+/* Hide the dot, but keep the input focusable */
+.theme-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.theme-option span {
+  display: block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--nav-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-option:hover span {
+  background-color: var(--accent-soft);
+}
+
+.theme-option input:checked + span {
+  background-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.theme-option input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .theme-option span {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 768px) {
